@@ -5,11 +5,11 @@ public class Propiedad {
     private int idPropiedad;
     private String ubicacion;
     private int precio;
-    private int idUsuarioDueno;
+    private Integer idUsuarioDueno;
 
     public Propiedad() {}
 
-    public Propiedad(int idPropiedad, String ubicacion, int precio, int idUsuarioDueno) {
+    public Propiedad(int idPropiedad, String ubicacion, int precio, Integer idUsuarioDueno) {
         this.idPropiedad = idPropiedad;
         this.ubicacion = ubicacion;
         this.precio = precio;
@@ -17,7 +17,7 @@ public class Propiedad {
     }
 
     // Getters y setters 
-    
+
     public int getIdPropiedad() {
         return idPropiedad;
     }
@@ -46,7 +46,7 @@ public class Propiedad {
         return idUsuarioDueno;
     }
 
-    public void setIdUsuarioDueno(int idUsuarioDueno) {
+    public void setIdUsuarioDueno(Integer idUsuarioDueno) {
         this.idUsuarioDueno = idUsuarioDueno;
     }
 }
