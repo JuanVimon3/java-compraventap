@@ -1,0 +1,7 @@
+com/compraventapropiedades/database/Conexion.class
+com/compraventapropiedades/model/Usuario.class
+com/compraventapropiedades/dao/UsuarioDAO.class
+com/compraventapropiedades/controller/LoginController.class
+com/compraventapropiedades/model/Propiedad.class
+com/compraventapropiedades/dao/PropiedadDAO.class
+com/compraventapropiedades/App.class

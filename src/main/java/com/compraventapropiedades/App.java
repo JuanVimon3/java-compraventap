@@ -6,11 +6,6 @@ import com.compraventapropiedades.model.Propiedad;
 import com.compraventapropiedades.model.Usuario;
 import java.util.List;
 
-
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
@@ -18,33 +13,29 @@ public class App
         UsuarioDAO uDAO = new UsuarioDAO();
         PropiedadDAO pDAO = new PropiedadDAO();
 
-        Usuario nuevoUsuario = new Usuario(0, 15455678, "pepito123@gmail.com", "Pepito Pérez" );
+        
+        Usuario u = new Usuario(1, 123, "email@test.com", "Juan", "password123");
        
-        // Insertar un nuevo usuario
-        uDAO.insertarUsuario(nuevoUsuario);
+        
+        uDAO.insertarUsuario(u);
 
-        // Leer o listar usuarios
-        uDAO.listarUsuarios();
-
-        // Crear una lista para ver usuarios
-
+        // Listar usuarios
         List<Usuario> lista = uDAO.listarUsuarios();
 
-        int idPepito = lista.get(0).getIdUsuario();
+        
+        if (!lista.isEmpty()) {
+            int idGenerado = lista.get(0).getIdUsuario();
 
-        // Insertar nueva propiedad
+            // 4. Insertar nueva propiedad usando el ID del usuario 
+            Propiedad nuevaPropiedad = new Propiedad(0, "Calle 32 123 San Javier", 7800000, idGenerado);
+            pDAO.insertarPropiedad(nuevaPropiedad);
 
-        Propiedad nuevaPropiedad = new Propiedad(0, "Calle 32 123 San Javier", 7800000, idPepito);
-        pDAO.insertarPropiedad(nuevaPropiedad);
-
-        // Eliminar propiedad
-
-        pDAO.eliminarPropiedad(idPepito);
-
-        //Eliminar usuario
-
-        uDAO.eliminarUsuario(idPepito); // En caso de que queramos borrar el usuario de Pepito Pérez
-
-
+            // 5. Eliminar 
+            
+            
+            System.out.println("Prueba de lógica completada con éxito.");
+        } else {
+            System.out.println("La lista de usuarios está vacía.");
+        }
     }
 }

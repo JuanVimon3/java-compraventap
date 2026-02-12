@@ -2,21 +2,21 @@ package com.compraventapropiedades.model;
 
 public class Usuario {
 
-    
     private int idUsuario;
     private int cedula;
     private String email;
     private String nombre;
+    private String contraseña; // Nuevo atributo
 
-    
     public Usuario() {}
 
-    
-    public Usuario(int idUsuario, int cedula, String email, String nombre) {
+  
+    public Usuario(int idUsuario, int cedula, String email, String nombre, String contraseña) {
         this.idUsuario = idUsuario;
         this.cedula = cedula;
         this.email = email;
         this.nombre = nombre;
+        this.contraseña = contraseña;
     }
 
     // Getters y Setters
@@ -50,5 +50,14 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 }

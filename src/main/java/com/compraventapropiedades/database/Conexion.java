@@ -10,15 +10,18 @@ public class Conexion {
     private static final String PASS = "Dracov3@2025";
 
     public static Connection conectar() {
-        Connection con = null;
-
-        try {
-            con = DriverManager.getConnection(URL, USER, PASS);
-            System.out.println("Conexión exitosa a la base de datos de compra y venta de propiedades");
-        } catch (Exception e) {
-            System.out.println("Error: conexión fallida " + e.getMessage());;
-        }
-
-        return con;
+    Connection con = null;
+    try {
+        
+        Class.forName("com.mysql.cj.jdbc.Driver"); 
+        
+        con = DriverManager.getConnection(URL, USER, PASS);
+        System.out.println("Conexión exitosa a la base de datos");
+    } catch (Exception e) {
+        
+        System.out.println("Error en la conexión: " + e.getMessage());
+        e.printStackTrace(); 
     }
+    return con;
+}
 }
