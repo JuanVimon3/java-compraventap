@@ -1,12 +1,19 @@
 package com.compraventapropiedades.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Usuario")
 public class Usuario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
     private int cedula;
     private String email;
     private String nombre;
     private String contraseña; // Nuevo atributo
+    
 
     public Usuario() {}
 
