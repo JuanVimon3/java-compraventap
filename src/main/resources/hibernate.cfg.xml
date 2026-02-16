@@ -3,6 +3,9 @@
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
+
+<!-- Session-factory ayuda a mantener separadas las actividades de sesión entre usuarios, dando orden y correspondencia a las consultas SQL  -->
+
     <session-factory>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/compra_venta_propiedades</property>
@@ -15,6 +18,8 @@
         <property name="format_sql">true</property>
         
         <property name="current_session_context_class">thread</property>
+
+        <!-- Este mapeo únicamente se hará dentro de la entidad de Usuario de momento  -->
         <mapping class="com.compraventapropiedades.model.Usuario"/>
         </session-factory>
 </hibernate-configuration>

@@ -1,5 +1,7 @@
 package com.compraventapropiedades.dao;
 
+// Se modifican las importaciones para trabajar con Hibernat
+
 import com.compraventapropiedades.database.HibernateUtil;
 import com.compraventapropiedades.model.Usuario;
 import org.hibernate.Session;

@@ -2,6 +2,8 @@ package com.compraventapropiedades.model;
 
 import jakarta.persistence.*;
 
+
+
 @Entity
 @Table(name = "Usuario")
 public class Usuario {

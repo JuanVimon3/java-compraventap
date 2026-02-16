@@ -3,6 +3,8 @@ package com.compraventapropiedades.database;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+//Este helper se encarga de gestionar el XML proveniente del Config de JAVA
+
 public class HibernateUtil {
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
