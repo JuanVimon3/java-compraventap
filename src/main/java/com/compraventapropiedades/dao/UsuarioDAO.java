@@ -73,6 +73,17 @@ public class UsuarioDAO {
             return null;
         }
     }
+
+    //Buscar usuarios por ID
+
+    public Usuario buscarPorId(int id) {
+    try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        return session.get(Usuario.class, id);
+    } catch (Exception e) {
+        e.printStackTrace();
+        return null;
+    }
+}
 }
 
 // package com.compraventapropiedades.dao;

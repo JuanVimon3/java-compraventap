@@ -1,20 +1,28 @@
 package com.compraventapropiedades.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Propiedad")
 public class Propiedad {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idPropiedad")
     private int idPropiedad;
+
+    @Column(name = "ubicacion")
     private String ubicacion;
+
+    @Column(name = "precio")
     private int precio;
-    private Integer idUsuarioDueno;
+
+    @ManyToOne
+    @JoinColumn(name = "idUsuarioDueno")
+    private Usuario dueno;
 
     public Propiedad() {}
 
-    public Propiedad(int idPropiedad, String ubicacion, int precio, Integer idUsuarioDueno) {
-        this.idPropiedad = idPropiedad;
-        this.ubicacion = ubicacion;
-        this.precio = precio;
-        this.idUsuarioDueno = idUsuarioDueno;
-    }
 
     // Getters y setters 
 
@@ -42,11 +50,11 @@ public class Propiedad {
         this.precio = precio;
     }
 
-    public int getIdUsuarioDueno() {
-        return idUsuarioDueno;
+    public Usuario getDueno() {
+        return dueno;
     }
 
-    public void setIdUsuarioDueno(Integer idUsuarioDueno) {
-        this.idUsuarioDueno = idUsuarioDueno;
+    public void setDueno(Usuario dueno) {
+        this.dueno = dueno;
     }
 }

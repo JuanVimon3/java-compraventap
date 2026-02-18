@@ -19,7 +19,8 @@
         
         <property name="current_session_context_class">thread</property>
 
-        <!-- Este mapeo únicamente se hará dentro de la entidad de Usuario de momento  -->
+        <!-- Mapeo de entidades desde Hibernate -->
         <mapping class="com.compraventapropiedades.model.Usuario"/>
+        <mapping class="com.compraventapropiedades.model.Propiedad"/>
         </session-factory>
 </hibernate-configuration>
