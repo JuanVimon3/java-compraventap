@@ -4,4 +4,6 @@ com/compraventapropiedades/dao/UsuarioDAO.class
 com/compraventapropiedades/controller/LoginController.class
 com/compraventapropiedades/model/Propiedad.class
 com/compraventapropiedades/dao/PropiedadDAO.class
+com/compraventapropiedades/database/HibernateUtil.class
 com/compraventapropiedades/App.class
+com/compraventapropiedades/controller/PropiedadServlet.class

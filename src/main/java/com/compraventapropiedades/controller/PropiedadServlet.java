@@ -35,7 +35,7 @@ public class PropiedadServlet extends HttpServlet {
                 int precio = Integer.parseInt(precioStr);
                 int idDueno = Integer.parseInt(idDuenoStr);
 
-                // 3. El paso clave de Hibernate: Buscar el objeto Usuario
+                // 3. Buscar el objeto Usuario
                 Usuario dueno = usuarioDAO.buscarPorId(idDueno);
 
                 if (dueno != null) {
