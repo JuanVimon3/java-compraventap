@@ -27,29 +27,32 @@ public class PropiedadServlet extends HttpServlet {
         String accion = request.getParameter("accion");
         String ubicacion = request.getParameter("ubicacion");
         String precioStr = request.getParameter("precio");
-        String idDuenoStr = request.getParameter("idUsuarioDueno");
+        
+        String idUsuarioStr = request.getParameter("idUsuarioDueno"); 
 
         try {
             if ("insertar".equals(accion)) {
                 // 2. Conversión de datos
                 int precio = Integer.parseInt(precioStr);
-                int idDueno = Integer.parseInt(idDuenoStr);
+                int idUsuario = Integer.parseInt(idUsuarioStr);
 
-                // 3. Buscar el objeto Usuario
-                Usuario dueno = usuarioDAO.buscarPorId(idDueno);
+                // 3. Buscar el objeto Usuario (dueño o propietario, aquí usaremos "owner")
+                Usuario usuarioOwner = usuarioDAO.buscarPorId(idUsuario);
 
-                if (dueno != null) {
+                if (usuarioOwner != null) {
                     // 4. Construir el objeto Propiedad
                     Propiedad nuevaPropiedad = new Propiedad();
                     nuevaPropiedad.setUbicacion(ubicacion);
                     nuevaPropiedad.setPrecio(precio);
-                    nuevaPropiedad.setDueno(dueno);
+                    
+                    
+                    nuevaPropiedad.setUsuario(usuarioOwner); 
 
                     // 5. Guardar
                     propiedadDAO.insertarPropiedad(nuevaPropiedad);
                 }
             }
-            // 6. Redirigir al panel para ver los cambios
+            // 6. Redirigir al panel 
             response.sendRedirect("panel.jsp");
 
         } catch (Exception e) {

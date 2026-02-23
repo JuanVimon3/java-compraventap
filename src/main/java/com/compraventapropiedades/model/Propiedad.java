@@ -18,8 +18,8 @@ public class Propiedad {
     private int precio;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuarioDueno")
-    private Usuario dueno;
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public Propiedad() {}
 
@@ -50,11 +50,11 @@ public class Propiedad {
         this.precio = precio;
     }
 
-    public Usuario getDueno() {
-        return dueno;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setDueno(Usuario dueno) {
-        this.dueno = dueno;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

@@ -22,5 +22,10 @@
         <!-- Mapeo de entidades desde Hibernate -->
         <mapping class="com.compraventapropiedades.model.Usuario"/>
         <mapping class="com.compraventapropiedades.model.Propiedad"/>
+        <mapping class="com.compraventapropiedades.model.Contrato"/>
+        <mapping class="com.compraventapropiedades.model.Vendedor"/>
+        <mapping class="com.compraventapropiedades.model.Pago"/>
+        <mapping class="com.compraventapropiedades.model.Administrador"/>
+        <mapping class="com.compraventapropiedades.model.Transaccion"/>
         </session-factory>
 </hibernate-configuration>

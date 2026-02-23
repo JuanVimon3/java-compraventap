@@ -38,7 +38,7 @@
         <input type="number" name="precio" required><br><br>
 
         <%-- Enviar el ID del usuario de la sesión actual --%>
-        <input type="hidden" name="idUsuarioDueno" value="<%= user.getIdUsuario() %>">
+        <input type="hidden" name="idUsuario" value="<%= user.getIdUsuario() %>">
 
         <button type="submit">Guardar Propiedad</button>
     </form>
@@ -63,6 +63,7 @@
                 <td><%= p.getIdPropiedad() %></td>
                 <td><%= p.getUbicacion() %></td>
                 <td><%= p.getPrecio() %></td>
+                <td><%= p.getUsuario().getNombre() %></td>
             </tr>
             <% } %>
         </tbody>
