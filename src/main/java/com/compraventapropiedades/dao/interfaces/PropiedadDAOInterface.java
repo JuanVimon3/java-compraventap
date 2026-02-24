@@ -6,7 +6,8 @@ import java.util.List;
 public interface PropiedadDAOInterface {
     //CRUD
     void insertarPropiedad(Propiedad propiedad);
-    List<Propiedad> listaPropiedades();
+    List<Propiedad> listarPropiedades();
+    Propiedad buscarPorId(int idPropiedad);
     void actualizarPropiedad(Propiedad propiedad);
     void eliminarPropiedad(int idPropiedad);
 }
