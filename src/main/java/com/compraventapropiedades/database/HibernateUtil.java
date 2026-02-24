@@ -1,3 +1,4 @@
+// Carga de conexión a la BD
 package com.compraventapropiedades.database;
 
 import org.hibernate.SessionFactory;
