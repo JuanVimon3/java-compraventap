@@ -2,6 +2,7 @@ package com.compraventapropiedades.controller;
 
 import com.compraventapropiedades.dao.PropiedadDAO;
 import com.compraventapropiedades.dao.UsuarioDAO;
+import com.compraventapropiedades.dao.interfaces.PropiedadDAOInterface;
 import com.compraventapropiedades.model.Propiedad;
 import com.compraventapropiedades.model.Usuario;
 
@@ -16,7 +17,7 @@ import java.io.IOException;
 @WebServlet("/PropiedadServlet") 
 public class PropiedadServlet extends HttpServlet {
 
-    private PropiedadDAO propiedadDAO = new PropiedadDAO();
+    private PropiedadDAOInterface propiedadDAO = new PropiedadDAO();
     private UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     @Override
@@ -28,7 +29,7 @@ public class PropiedadServlet extends HttpServlet {
         String ubicacion = request.getParameter("ubicacion");
         String precioStr = request.getParameter("precio");
         
-        String idUsuarioStr = request.getParameter("idUsuarioDueno"); 
+        String idUsuarioStr = request.getParameter("idUsuario"); 
 
         try {
             if ("insertar".equals(accion)) {

@@ -1,15 +1,15 @@
 package com.compraventapropiedades.dao;
 
 import com.compraventapropiedades.model.Propiedad;
-
-
+import com.compraventapropiedades.dao.interfaces.PropiedadDAOInterface;
 import com.compraventapropiedades.database.HibernateUtil; 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.List;
 
-public class PropiedadDAO {
+public class PropiedadDAO implements PropiedadDAOInterface {
 
+    @Override
     public void insertarPropiedad(Propiedad propiedad) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -23,12 +23,14 @@ public class PropiedadDAO {
         }
     }
 
+    @Override
     public List<Propiedad> listarPropiedades() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("from Propiedad", Propiedad.class).list();
         }
     }
 
+    @Override
     public void actualizarPropiedad(Propiedad propiedad) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -41,6 +43,7 @@ public class PropiedadDAO {
         }
     }
 
+    @Override
     public void eliminarPropiedad(int idPropiedad) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -53,6 +56,13 @@ public class PropiedadDAO {
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Propiedad buscarPorId(int idPropiedad){
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            return session.get(Propiedad.class, idPropiedad);
         }
     }
 }

@@ -4,14 +4,16 @@ package com.compraventapropiedades.dao;
 
 import com.compraventapropiedades.database.HibernateUtil;
 import com.compraventapropiedades.model.Usuario;
+import com.compraventapropiedades.dao.interfaces.UsuarioDAOInterface;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import java.util.List;
 
-public class UsuarioDAO {
+public class UsuarioDAO implements UsuarioDAOInterface {
 
     // Insertar con Hibernate
+    @Override
     public void insertarUsuario(Usuario usuario) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -25,6 +27,7 @@ public class UsuarioDAO {
     }
 
     // Listar con Hibernate
+    @Override
     public List<Usuario> listarUsuarios() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("from Usuario", Usuario.class).list();
@@ -32,6 +35,7 @@ public class UsuarioDAO {
     }
 
     // Actualizar con Hibernate
+    @Override
     public void actualizarUsuario(Usuario usuario) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -45,6 +49,7 @@ public class UsuarioDAO {
     }
 
     // Eliminar con Hibernate
+    @Override
     public void eliminarUsuario(int idUsuario) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -60,7 +65,8 @@ public class UsuarioDAO {
         }
     }
 
-    // Validar(Login) con Hibernate 
+    // Validar(Login) con Hibernate
+    @Override
     public Usuario validar(String email, String pass) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql = "FROM Usuario WHERE email = :email AND contraseña = :password";
@@ -75,7 +81,7 @@ public class UsuarioDAO {
     }
 
     //Buscar usuarios por ID
-
+    @Override
     public Usuario buscarPorId(int id) {
     try (Session session = HibernateUtil.getSessionFactory().openSession()) {
         return session.get(Usuario.class, id);
