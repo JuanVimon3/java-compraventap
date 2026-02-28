@@ -82,9 +82,9 @@ public class UsuarioDAO implements UsuarioDAOInterface {
 
     //Buscar usuarios por ID
     @Override
-    public Usuario buscarPorId(int id) {
+    public Usuario buscarPorId(int idUsuario) {
     try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-        return session.get(Usuario.class, id);
+        return session.get(Usuario.class, idUsuario);
     } catch (Exception e) {
         e.printStackTrace();
         return null;
